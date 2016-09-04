@@ -1,5 +1,7 @@
 #include <GL/glut.h>
 #include <iostream>
+#include <string>
+#include <functional>
 
 using namespace std;
 
@@ -7,9 +9,11 @@ using namespace std;
 class Application {
 private:
 	static Application* pApplication;
-	Application() {}
+	Application() {
+	}
 	Application(const Application&);
 	Application& operator=(Application&);
+
 public:
 	static Application* getApplication() {
 		if (!pApplication) 
@@ -46,18 +50,43 @@ void display() {
 	Application::getApplication()->display();
 } 
 
-void init() {
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-	glutInitWindowSize(400, 400);
-	glutInitWindowPosition(100, 100);
-	glutCreateWindow("WindowTitle");
-}
+
+
+
+class Window {
+private:
+	GLsizei windWidth;
+	GLsizei windHeight;
+	GLsizei windPosX;
+	GLsizei windPosY;
+	GLuint mode;
+	std::string title;
+
+	void init() {
+		glutInitDisplayMode(mode);
+		glutInitWindowSize(windWidth, windHeight);
+		glutInitWindowPosition(windPosX, windPosY);
+		glutCreateWindow(title.c_str());
+	}
+public:
+	Window(GLsizei windWidth, GLsizei windHeight, GLsizei windPosX, GLsizei windPosY, GLuint mode,const char* title) :
+	windWidth(windWidth), windHeight(windHeight), windPosX(windPosX), windPosY(windPosY), mode(mode), title(title) {
+		init();
+	}
+
+	void setDisplayFunc(void (*func)()) {
+		glutDisplayFunc(func);
+	}
+
+	void mainLoop() {
+		glutMainLoop();
+	}
+};
 
 int main(int argc, char **argv) {
 	glutInit(&argc, argv);
-	init();
-	glutDisplayFunc(display);
-	glutMainLoop();
-
+	Window window(300, 300, 100, 100, GLUT_SINGLE | GLUT_RGB, "myWindow");
+	window.setDisplayFunc(display);
+	window.mainLoop();
 	return 0;
 }
