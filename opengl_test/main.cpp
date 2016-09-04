@@ -3,6 +3,7 @@
 #include <string>
 #include <functional>
 
+#include "Point.h"
 using namespace std;
 
 //singleton
@@ -50,7 +51,18 @@ void display() {
 	Application::getApplication()->display();
 } 
 
+void display1() {
+	glClear(GL_COLOR_BUFFER_BIT);	//clear color buffer
+	glColor3f(1.0, 1.0, 1.0);
+	glBegin(GL_POLYGON);
+	glVertex3f(0.25, 0.25, 0.0);
+	glVertex3f(0.75, 0.25, 0.0);
+	glVertex3f(0.25, 0.75, 0.0);
+	glVertex3f(0.25, 0.75, 0.0);
+	glEnd();
 
+	glFlush();	//
+}
 
 
 class Window {
@@ -81,12 +93,19 @@ public:
 	void mainLoop() {
 		glutMainLoop();
 	}
+
+	GLsizei getWindHeight() const { return windHeight; }
+	GLsizei getWindWidth() const { return windWidth; }
 };
 
 int main(int argc, char **argv) {
 	glutInit(&argc, argv);
-	Window window(300, 300, 100, 100, GLUT_SINGLE | GLUT_RGB, "myWindow");
+	
+	/*Window window(300, 300, 100, 100, GLUT_SINGLE | GLUT_RGB, "myWindow");
 	window.setDisplayFunc(display);
 	window.mainLoop();
+*/
+	
+	system("pause");
 	return 0;
 }
