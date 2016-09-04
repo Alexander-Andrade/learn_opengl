@@ -4,34 +4,31 @@
 using namespace std;
 
 void display() {
-	glClear(GL_COLOR_BUFFER_BIT);
-	glLoadIdentity();
-	glColor3f(0, 0, 1);
-	//glutSolidSphere(0.5, 45, 15);
-	/*glRotatef(60, 1.0, 0.0, 1.0);
-	glutWireSphere(0.5, 45, 15);
-	glColor3f(0, 1, 1);
-	glutWireCube(0.5);*/
-	glRotatef(60, 1.0, 0.0, 1.0);
-	glutWireTetrahedron();;
-	glFlush();
+	glClear(GL_COLOR_BUFFER_BIT);	//clear color buffer
+	//draw white poligon
+	glColor3f(1.0, 1.0, 1.0);
+	glBegin(GL_POLYGON);
+	glVertex3f(0.25, 0.25, 0.0);
+	glVertex3f(0.75, 0.25, 0.0);
+	glVertex3f(0.25, 0.75, 0.0);
+	glVertex3f(0.25, 0.75, 0.0);
+	glEnd();
+
+	glFlush();	//
 } 
 
 void init() {
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-	glutInitWindowSize(800, 800);
-	glutInitWindowPosition(100, 143);
-	glutCreateWindow("Circle");
-	glClearColor(0.0, 0.0, 0.0, 0.0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
+	glutInitWindowSize(400, 400);
+	glutInitWindowPosition(100, 100);
+	glutCreateWindow("WindowTitle");
 }
 
 int main(int argc, char **argv) {
 	glutInit(&argc, argv);
 	init();
 	glutDisplayFunc(display);
-	glutMainLoop(); 
+	glutMainLoop();
 
+	return 0;
 }
