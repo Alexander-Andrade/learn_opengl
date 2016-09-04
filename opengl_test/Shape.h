@@ -7,7 +7,7 @@ using namespace std;
 
 class Shape
 {
-private:
+protected:
 	std::unique_ptr<Painter> painter;
 public:
 	Shape() {}

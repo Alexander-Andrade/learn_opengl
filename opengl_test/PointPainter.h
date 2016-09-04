@@ -7,6 +7,8 @@
 
 using namespace std;
 
+struct Point;
+
 class PointPainter : public Painter {
 private:
 	Point* pPoint;
