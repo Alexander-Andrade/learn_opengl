@@ -114,6 +114,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Point.cpp" />
+    <ClCompile Include="PointPainter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Line.h" />

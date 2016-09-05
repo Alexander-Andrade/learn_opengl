@@ -15,47 +15,16 @@ struct Point : public Shape{
 	GLfloat y;
 	GLfloat z;
 
-	Point(GLfloat x, GLfloat y) {
-		painter.reset(new PointPainter(this));
-		this->x = x;
-		this->y = y;
-		this->z = z;
-	}
+	Point(GLfloat x, GLfloat y, GLfloat z);
+	Point(const Point& p);
+	Point operator+(const Point& p);
+	Point operator-(const Point& p);
+	Point operator*(const Point& p);
+	Point operator/(const Point& p);
 
-	Point(const Point& p) {
-		x = p.x;
-		y = p.y;
-		z = p.z;
-	}
-	
-	Point operator+(const Point& p) {
-		return Point(x + p.x, y + p.y, z + p.z);
-	}
-
-	Point operator-(const Point& p) {
-		return Point(x - p.x, y - p.y, z - p.z);
-	}
-
-	Point operator*(const Point& p) {
-		return Point(x * p.x, y * p.y, z * p.z);
-	}
-
-	Point operator/(const Point& p) {
-		return Point(x / p.x, y / p.y, z / p.z);
-	}
-
-	double length() {
-		return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
-	}
-
-	double distance_to(const Point& p) {
-		return ((*this) - p).length();
-	}
-
-	friend ostream& operator << (ostream& s, Point& p) {
-		s << "Point(" << p.x << ", " << p.y << ", "<< p.z <<")";
-		return s;
-	}
+	double length();
+	double distance_to(const Point& p);
+	friend ostream& operator << (ostream& s, Point& p);
 };
 
 
