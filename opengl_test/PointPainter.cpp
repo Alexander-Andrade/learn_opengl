@@ -1,10 +1,13 @@
 #include "PointPainter.h"
 
+PointPainter::PointPainter(Point * pPoint){
+	this->pPoint = pPoint;
+}
+
 void PointPainter::draw(){
-	glColor3f(1.0, 1.0, 1.0);
-	glBegin(GL_LINES);
+	glBegin(GL_POINTS);
 	glVertex3f(pPoint->x, pPoint->y, pPoint->z);
 	glEnd();
 
-	glFlush();	//
+	glFinish();	//
 }

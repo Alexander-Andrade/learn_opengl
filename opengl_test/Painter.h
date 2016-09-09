@@ -4,8 +4,6 @@
 class Painter
 {
 public:
-	Painter() {}
-	virtual ~Painter() {}
 	virtual void draw()=0;
 };
 

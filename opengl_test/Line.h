@@ -4,9 +4,14 @@
 #include "Shape.h"
 #include "Point.h"
 
-class Line : public Shape {
-private:
-	 
+struct Line : public Shape {
+	Point p1;
+	Point p2;
+
+	Line(Point& p1, Point& p2);
+	Line(const Line& line);
+	Line& operator=(const Line& line);
+	void copy(const Line& l);
 };
 
 #endif

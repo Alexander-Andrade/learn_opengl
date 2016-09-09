@@ -13,11 +13,8 @@ class PointPainter : public Painter {
 private:
 	Point* pPoint;
 public:
-	PointPainter(Point* pPoint) {
-		this->pPoint = pPoint;
-	}
+	PointPainter(Point* pPoint);
 	void draw() override;
 };
-
 
 #endif

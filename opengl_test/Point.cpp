@@ -8,9 +8,13 @@ Point::Point(GLfloat x, GLfloat y, GLfloat z){
 }
 
 Point::Point(const Point & p){
-		x = p.x;
-		y = p.y;
-		z = p.z;
+	painter.reset(new PointPainter(this));
+	copy(p);
+}
+
+Point & Point::operator=(const Point & p){
+	copy(p);
+	return *this;
 }
 
 Point Point::operator+(const Point & p){
@@ -29,12 +33,18 @@ Point Point::operator/(const Point & p){
 	return Point(x / p.x, y / p.y, z / p.z);
 }
 
-double Point::length(){
+double Point::distance(){
 	return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
 }
 
 double Point::distance_to(const Point & p){
-	return ((*this) - p).length();
+	return ((*this) - p).distance();
+}
+
+void Point::copy(const Point& p){
+	this->x = p.x;
+	this->y = p.y;
+	this->z = p.z;
 }
 
 ostream & operator<<(ostream & s, Point & p){
