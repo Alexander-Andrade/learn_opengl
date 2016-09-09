@@ -15,6 +15,17 @@ private:
 public:
 	PointPainter(Point* pPoint);
 	void draw() override;
+	PointPainter* newInstance(Shape* shape) override;
+};
+
+
+class RedPointPainter : public Painter {
+private:
+	Point* pPoint;
+public:
+	RedPointPainter(Point* pPoint);
+	void draw() override;
+	RedPointPainter* newInstance(Shape* shape) override;
 };
 
 #endif

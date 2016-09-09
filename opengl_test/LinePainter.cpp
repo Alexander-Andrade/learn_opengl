@@ -10,3 +10,7 @@ void LinePainter::draw(){
 	glVertex3f(pLine->p2.x, pLine->p2.y, pLine->p2.z);
 	glEnd();
 }
+
+LinePainter * LinePainter::newInstance(Shape * shape){
+	return new LinePainter((Line*)shape);
+}

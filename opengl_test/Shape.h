@@ -4,22 +4,22 @@
 #include <memory>
 using namespace std;
 
+class Painter;
 
 class Shape
 {
 protected:
 	std::unique_ptr<Painter> painter;
+	void copyPainter(Painter* shape);
 public:
 	Shape() {}
 	virtual ~Shape() {}
 
-	void draw() {
-		painter->draw();
-	}
+	void draw();
+	
 
-	void setPainter(Painter * pPainter) {
-		this->painter.reset(pPainter);
-	}
+
+	void setPainter(Painter * pPainter);
 };
 
 #endif

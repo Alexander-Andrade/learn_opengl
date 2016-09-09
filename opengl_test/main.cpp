@@ -4,6 +4,8 @@
 #include <functional>
 #include <memory>
 
+#include "Painter.h"
+#include "Shape.h"
 #include "Point.h"
 #include "Line.h"
 #include <list>
@@ -19,6 +21,8 @@ private:
 		glClearColor(1.0, 1.0, 1.0, 1.0);
 		figures.push_back(make_unique<Point>(Point(0.2, 0.4, 0.0)));
 		figures.push_back(make_unique<Line>(Line(Point(0.1, 0.6, 0.0), Point(0.04, 0.4, 0.0))));
+		Point p(0.3, 0.1, 0.4);
+		Point p1 = p;
 	}
 	Application(const Application&);
 	Application& operator=(Application&);

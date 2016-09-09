@@ -15,6 +15,7 @@ private:
 public:
 	LinePainter(Line* pLine);
 	void draw() override;
+	LinePainter* newInstance(Shape* shape) override;
 };
 
 #endif

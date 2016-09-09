@@ -8,11 +8,12 @@ Line::Line(Point & p1, Point & p2){
 }
 
 Line::Line(const Line & line){
-	painter.reset(new LinePainter(this));
+	copyPainter(line.painter.get());
 	copy(line);
 }
 
 Line& Line::operator=(const Line & line){
+	copyPainter(line.painter.get());
 	copy(line);
 	return *this;
 }

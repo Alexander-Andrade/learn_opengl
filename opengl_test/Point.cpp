@@ -8,11 +8,12 @@ Point::Point(GLfloat x, GLfloat y, GLfloat z){
 }
 
 Point::Point(const Point & p){
-	painter.reset(new PointPainter(this));
+	copyPainter(p.painter.get());
 	copy(p);
 }
 
 Point & Point::operator=(const Point & p){
+	copyPainter(p.painter.get());
 	copy(p);
 	return *this;
 }
