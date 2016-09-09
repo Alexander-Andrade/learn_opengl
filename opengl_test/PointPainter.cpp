@@ -24,6 +24,7 @@ RedPointPainter::RedPointPainter(Point * pPoint){
 
 void RedPointPainter::draw(){
 	glColor3f(0.3, 0.7, 0.3);
+	glPointSize(6.0);
 	glBegin(GL_POINTS);
 	glVertex3f(pPoint->x, pPoint->y, pPoint->z);
 	glEnd();

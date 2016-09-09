@@ -12,7 +12,7 @@ protected:
 	std::unique_ptr<Painter> painter;
 	void copyPainter(Painter* shape);
 public:
-	Shape() {}
+	Shape(Painter* painter);
 	virtual ~Shape() {}
 
 	void draw();

@@ -1,19 +1,16 @@
 #include "Point.h"
 
-Point::Point(GLfloat x, GLfloat y, GLfloat z){
-	painter.reset(new PointPainter(this));
+Point::Point(GLfloat x, GLfloat y, GLfloat z) : Shape(new PointPainter(this)){
 	this->x = x;
 	this->y = y;
 	this->z = z;
 }
 
-Point::Point(const Point & p){
-	copyPainter(p.painter.get());
+Point::Point(const Point & p) : Shape(nullptr){
 	copy(p);
 }
 
 Point & Point::operator=(const Point & p){
-	copyPainter(p.painter.get());
 	copy(p);
 	return *this;
 }
@@ -43,6 +40,7 @@ double Point::distance_to(const Point & p){
 }
 
 void Point::copy(const Point& p){
+	copyPainter(p.painter.get());
 	this->x = p.x;
 	this->y = p.y;
 	this->z = p.z;
