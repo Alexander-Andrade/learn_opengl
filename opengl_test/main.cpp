@@ -8,6 +8,8 @@
 #include "Shape.h"
 #include "Point.h"
 #include "Line.h"
+#include "Circle.h"
+#include "Triangle.h"
 #include <list>
 
 
@@ -21,10 +23,8 @@ private:
 		glClearColor(1.0, 1.0, 1.0, 1.0);
 		figures.push_back(make_unique<Point>(Point(0.2, 0.4, 0.0)));
 		figures.push_back(make_unique<Line>(Line(Point(0.1, 0.6, 0.0), Point(0.04, 0.4, 0.0))));
-		Point p(0.3, 0.1, 0.4);
-		p.setPainter(new RedPointPainter(&p));
-		Point p2(0.5, 0.1, 0.7);
-		figures.push_back(make_unique<Point>(p));
+		figures.push_back(make_unique<Circle>( Circle(Point(0.4, 0.1, 0.3), 30)));
+		figures.push_back(make_unique<Triangle>(Point(0.3, 0.23, 0.5), Point(0.6, 0.2, 0.45), Point(0.23, 0.45, 0.76)));
 	}
 	Application(const Application&);
 	Application& operator=(Application&);

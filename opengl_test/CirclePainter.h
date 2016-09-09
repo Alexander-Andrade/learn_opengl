@@ -5,7 +5,7 @@
 #include "Circle.h"
 #include "Painter.h"
 
-
+struct Circle;
 
 class CirclePainter : public Painter{
 private:

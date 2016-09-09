@@ -113,20 +113,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="CirclePainter.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="LinePainter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="PointPainter.cpp" />
     <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="Triangle.cpp" />
+    <ClCompile Include="TrianglePainter.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Circle.h" />
+    <ClInclude Include="CirclePainter.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="LinePainter.h" />
     <ClInclude Include="Painter.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="PointPainter.h" />
     <ClInclude Include="Shape.h" />
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="TrianglePainter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
