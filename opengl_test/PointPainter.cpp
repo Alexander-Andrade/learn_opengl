@@ -8,8 +8,6 @@ void PointPainter::draw(){
 	glBegin(GL_POINTS);
 	glVertex3f(pPoint->x, pPoint->y, pPoint->z);
 	glEnd();
-
-	glFlush();	//
 }
 
 PointPainter * PointPainter::newInstance(Shape* shape){
@@ -28,8 +26,6 @@ void RedPointPainter::draw(){
 	glBegin(GL_POINTS);
 	glVertex3f(pPoint->x, pPoint->y, pPoint->z);
 	glEnd();
-
-	glFlush();	
 }
 
 RedPointPainter * RedPointPainter::newInstance(Shape * shape){

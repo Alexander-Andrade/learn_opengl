@@ -51,6 +51,9 @@
     <ClCompile Include="TrajectoryPainter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GlutTimerWrapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shape.h">
@@ -87,6 +90,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TrajectoryPainter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GlutTimerWrapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

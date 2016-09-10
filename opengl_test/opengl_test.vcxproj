@@ -115,6 +115,7 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="CirclePainter.cpp" />
+    <ClCompile Include="GlutTimerWrapper.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="LinePainter.cpp" />
     <ClCompile Include="main.cpp" />
@@ -129,6 +130,7 @@
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CirclePainter.h" />
+    <ClInclude Include="GlutTimerWrapper.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="LinePainter.h" />
     <ClInclude Include="Painter.h" />

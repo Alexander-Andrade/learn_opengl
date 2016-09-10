@@ -45,7 +45,7 @@ public:
 		for (unique_ptr<Shape>& figure : figures)
 			figure->draw();
 
-		glFlush();
+		glutSwapBuffers();
 	}
 };
 Application* Application::pApplication = nullptr;
@@ -91,8 +91,7 @@ public:
 
 int main(int argc, char **argv) {
 	glutInit(&argc, argv);
-	
-	Window window(300, 300, 100, 100, GLUT_SINGLE | GLUT_RGB, "myWindow");
+	Window window(300, 300, 100, 100, GLUT_DOUBLE | GLUT_RGB, "myWindow");
 	window.setDisplayFunc(display);
 	window.mainLoop();
 

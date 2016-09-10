@@ -4,11 +4,20 @@
 #include <GL/glut.h>
 #include "Shape.h"
 #include "Point.h"
+#include "GlutTimerWrapper.h"
 #include "TrajectoryPainter.h"
 
-struct Trajectory : public Shape{
+//decorator
+struct Trajectory : public Shape, public GlutTimerWrapper{
+private:
+	Shape* shape;
+	Point curPosition;
 public:
-	Trajectory();
+	GLfloat timerDuration;
+	Trajectory(Shape* shape, GLfloat timerDuration, Point initPosition, bool isMoving);
+	virtual void moveShape();
+	virtual void resetTimerDuration(GLfloat timerDuration);
+	void onTimer() override;
 };
 
 

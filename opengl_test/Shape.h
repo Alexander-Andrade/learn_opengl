@@ -1,5 +1,7 @@
 #ifndef SHAPE_H
 #define SHAPE_H
+
+#include <GL/glut.h>
 #include "Painter.h"
 #include <memory>
 
@@ -17,7 +19,7 @@ public:
 	virtual ~Shape() {}
 
 	void draw();
-	//virtual void setGravityCenterCoords(Point& p) {}
+	virtual void setGravityCenterCoords(GLfloat x, GLfloat y, GLfloat z) {}
 
 
 	void setPainter(Painter * pPainter);
