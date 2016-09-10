@@ -1,7 +1,6 @@
 ﻿#ifndef POINT_H
 #define POINT_H
 
-#include <GL\glut.h>
 #include "Shape.h"
 #include "PointPainter.h"
 #include <cmath>

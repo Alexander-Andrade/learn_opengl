@@ -1,6 +1,8 @@
 #ifndef Painter_H
 #define Painter_H
+
 #include "Shape.h"
+
 
 class Shape;
 

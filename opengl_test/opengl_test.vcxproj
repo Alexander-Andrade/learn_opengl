@@ -121,6 +121,8 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="PointPainter.cpp" />
     <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="Trajectory.cpp" />
+    <ClCompile Include="TrajectoryPainter.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="TrianglePainter.cpp" />
   </ItemGroup>
@@ -133,6 +135,8 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="PointPainter.h" />
     <ClInclude Include="Shape.h" />
+    <ClInclude Include="Trajectory.h" />
+    <ClInclude Include="TrajectoryPainter.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="TrianglePainter.h" />
   </ItemGroup>

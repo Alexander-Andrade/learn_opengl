@@ -1,6 +1,7 @@
 #ifndef TRIANGLE_PAINTER_H
 #define TRIANGLE_PAINTER_H
 
+#include <GL\glut.h>
 #include "Painter.h"
 #include "Triangle.h"
 

@@ -14,7 +14,7 @@ struct Triangle : public Shape{
 	Triangle(Point& p1, Point& p2, Point& p3);
 	Triangle(const Triangle& Triangle);
 	Triangle& operator=(const Triangle& Triangle);
-	void copy(const Triangle& l);
+	void copy(const Triangle& triangle);
 };
 
 #endif

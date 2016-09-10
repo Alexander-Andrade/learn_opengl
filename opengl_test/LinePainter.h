@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Line;
+struct Line;
 
 class LinePainter : public Painter {
 private:

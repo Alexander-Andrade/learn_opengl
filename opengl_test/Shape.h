@@ -2,6 +2,7 @@
 #define SHAPE_H
 #include "Painter.h"
 #include <memory>
+
 using namespace std;
 
 class Painter;
@@ -16,7 +17,7 @@ public:
 	virtual ~Shape() {}
 
 	void draw();
-	
+	//virtual void setGravityCenterCoords(Point& p) {}
 
 
 	void setPainter(Painter * pPainter);
