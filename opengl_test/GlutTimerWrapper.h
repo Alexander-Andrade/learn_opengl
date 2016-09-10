@@ -4,6 +4,8 @@
 
 class GlutTimerWrapper
 {
+private:
+	bool isStarted;
 protected:
 	bool isRepeat;
 	int msecs;

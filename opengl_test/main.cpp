@@ -10,6 +10,7 @@
 #include "Line.h"
 #include "Circle.h"
 #include "Triangle.h"
+#include "GlutTimerWrapper.h" 
 #include <list>
 
 
@@ -89,10 +90,22 @@ public:
 	GLsizei getWindWidth() const { return windWidth; }
 };
 
+class HelloTimer : public GlutTimerWrapper {
+public:
+	HelloTimer(bool repeat,int mimsec) : GlutTimerWrapper(repeat, mimsec) {}
+	void onTimer()override {
+		cout << "Hello!" << endl;
+	}
+};
+
+
 int main(int argc, char **argv) {
 	glutInit(&argc, argv);
 	Window window(300, 300, 100, 100, GLUT_DOUBLE | GLUT_RGB, "myWindow");
 	window.setDisplayFunc(display);
+	HelloTimer ht(false,1000);
+	ht.start();
+
 	window.mainLoop();
 
 	
