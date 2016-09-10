@@ -8,11 +8,12 @@ private:
 	bool isStarted;
 protected:
 	bool isRepeat;
-	int msecs;
+	int msDuration;
 	static void timerFunc(int value);
 public:
 	GlutTimerWrapper(bool isRepeat,int msecs);
 	virtual void onTimer() = 0;
+	void setDuration(int msDuration);
 	void start();
 	void stop();
 };

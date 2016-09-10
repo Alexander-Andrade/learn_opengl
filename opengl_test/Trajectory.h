@@ -16,7 +16,6 @@ public:
 	GLfloat timerDuration;
 	Trajectory(Shape* shape, GLfloat timerDuration, Point initPosition, bool isMoving);
 	virtual void moveShape();
-	virtual void resetTimerDuration(GLfloat timerDuration);
 	void onTimer() override;
 };
 

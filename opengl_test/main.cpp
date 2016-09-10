@@ -22,10 +22,13 @@ private:
 	static Application* pApplication;
 	Application() {
 		glClearColor(1.0, 1.0, 1.0, 1.0);
-		figures.push_back(make_unique<Point>(Point(0.2, 0.4, 0.0)));
-		figures.push_back(make_unique<Line>(Line(Point(0.1, 0.6, 0.0), Point(0.04, 0.4, 0.0))));
-		figures.push_back(make_unique<Circle>( Circle(Point(0.4, 0.1, 0.3), 30)));
-		figures.push_back(make_unique<Triangle>(Point(0.3, 0.23, 0.5), Point(0.6, 0.2, 0.45), Point(0.23, 0.45, 0.76)));
+		/*figures.push_back(make_unique<Point>(Point(0.2, 0.4, 0.0)));
+		figures.push_back(make_unique<Line>(Line(Point(0.1, 0.6, 0.0), Point(0.04, 0.4, 0.0))));*/
+		//figures.push_back(make_unique<Circle>( Circle(Point(0.4, 0.1, 0.3), 60)));
+		//figures.push_back(make_unique<Triangle>(Point(0.3, 0.23, 0.5), Point(0.6, 0.2, 0.45), Point(0.23, 0.45, 0.76)));
+		Circle circ(Point(0.2, 0.5, 0.23), 0.2);
+		circ.setPainter(new CircleFromTriangles(&circ, 20));
+		figures.push_back(make_unique<Circle>(circ));
 	}
 	Application(const Application&);
 	Application& operator=(Application&);
@@ -42,7 +45,7 @@ public:
 
 	void display() {
 		glClear(GL_COLOR_BUFFER_BIT);	//clear color buffer
-		glColor3f(0.0, 0.0, 0.0);
+		glColor3f(0.0, 0.3, 0.0);
 		for (unique_ptr<Shape>& figure : figures)
 			figure->draw();
 
@@ -90,25 +93,13 @@ public:
 	GLsizei getWindWidth() const { return windWidth; }
 };
 
-class HelloTimer : public GlutTimerWrapper {
-public:
-	HelloTimer(bool repeat,int mimsec) : GlutTimerWrapper(repeat, mimsec) {}
-	void onTimer()override {
-		cout << "Hello!" << endl;
-	}
-};
-
 
 int main(int argc, char **argv) {
 	glutInit(&argc, argv);
 	Window window(300, 300, 100, 100, GLUT_DOUBLE | GLUT_RGB, "myWindow");
 	window.setDisplayFunc(display);
-	HelloTimer ht(false,1000);
-	ht.start();
-
 	window.mainLoop();
 
-	
 	system("pause");
 	return 0;
 }

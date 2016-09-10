@@ -12,9 +12,6 @@ void Trajectory::moveShape(){
 	shape->setGravityCenterCoords(curPosition.x, curPosition.y, curPosition.z);
 }
 
-void Trajectory::resetTimerDuration(GLfloat timerDuration){
-}
-
 void Trajectory::onTimer(){
 	moveShape();
 	glutPostRedisplay();
