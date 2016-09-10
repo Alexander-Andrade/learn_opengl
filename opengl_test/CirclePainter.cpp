@@ -1,7 +1,6 @@
 #include "CirclePainter.h"
 
 
-
 CirclePainter::CirclePainter(Circle * pCircle){
 	this->pCircle = pCircle;
 }
@@ -25,15 +24,16 @@ CirclePainter * CirclePainter::newInstance(Shape * shape){
 
 
 
-CircleFromTriangles::CircleFromTriangles(Circle * pCircle, int accuracy){
+CircleFromTriangles::CircleFromTriangles(Circle * pCircle){
 	this->pCircle = pCircle;
-	this->accuracy = accuracy;
 }
 
+
 void CircleFromTriangles::draw(){
-	double twicePidivAccur = getTwicePiDivAccuracy();
 	double x_coord = 0.0;
 	double y_coord = 0.0;
+	int accuracy = 50;
+	double twicePidivAccur = getTwicePiDivAccuracy(accuracy);
 	glBegin(GL_TRIANGLE_FAN);
 	glVertex3d(pCircle->center.x, pCircle->center.y, 0.0);
 	for (int i = 0; i <= accuracy; i++) {
@@ -48,10 +48,6 @@ CircleFromTriangles * CircleFromTriangles::newInstance(Shape * shape){
 	return new CircleFromTriangles((Circle*)shape);
 }
 
-double CircleFromTriangles::getTwicePiDivAccuracy(){
+double CircleFromTriangles::getTwicePiDivAccuracy(int accuracy){
 	return 2.0 * M_PI / accuracy;
-}
-
-void CircleFromTriangles::setAccuracy(int accuracy){
-	this->accuracy = accuracy;
 }

@@ -22,13 +22,11 @@ public:
 class CircleFromTriangles : public Painter {
 private:
 	Circle* pCircle;
-	int accuracy;
 public:
-	CircleFromTriangles(Circle* pCircle, int accuracy=20);
+	CircleFromTriangles(Circle* pCircle);
 	void draw() override;
 	CircleFromTriangles* newInstance(Shape* shape) override;
-	double getTwicePiDivAccuracy();
-	void setAccuracy(int accuracy);
+	double getTwicePiDivAccuracy(int accuracy);
 };
 
 #endif // !1

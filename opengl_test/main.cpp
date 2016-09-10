@@ -12,7 +12,7 @@
 #include "Triangle.h"
 #include "GlutTimerWrapper.h" 
 #include <list>
-
+#include "SOIL.h"
 
 using namespace std;
 
@@ -21,13 +21,13 @@ class Application {
 private:
 	static Application* pApplication;
 	Application() {
-		glClearColor(1.0, 1.0, 1.0, 1.0);
+		glClearColor(0.0, 0.0, 0.0, 1.0);
 		/*figures.push_back(make_unique<Point>(Point(0.2, 0.4, 0.0)));
 		figures.push_back(make_unique<Line>(Line(Point(0.1, 0.6, 0.0), Point(0.04, 0.4, 0.0))));*/
 		//figures.push_back(make_unique<Circle>( Circle(Point(0.4, 0.1, 0.3), 60)));
 		//figures.push_back(make_unique<Triangle>(Point(0.3, 0.23, 0.5), Point(0.6, 0.2, 0.45), Point(0.23, 0.45, 0.76)));
 		Circle circ(Point(0.2, 0.5, 0.23), 0.2);
-		circ.setPainter(new CircleFromTriangles(&circ, 20));
+		circ.setPainter(new CircleFromTriangles(&circ));
 		figures.push_back(make_unique<Circle>(circ));
 	}
 	Application(const Application&);
@@ -48,6 +48,7 @@ public:
 		glColor3f(0.0, 0.3, 0.0);
 		for (unique_ptr<Shape>& figure : figures)
 			figure->draw();
+
 
 		glutSwapBuffers();
 	}
@@ -96,10 +97,19 @@ public:
 
 int main(int argc, char **argv) {
 	glutInit(&argc, argv);
-	Window window(300, 300, 100, 100, GLUT_DOUBLE | GLUT_RGB, "myWindow");
+	Window window(300, 300, 100, 100, GLUT_DOUBLE | GLUT_RGBA, "myWindow");
 	window.setDisplayFunc(display);
-	window.mainLoop();
+	
+	GLuint tex_2d = SOIL_load_OGL_texture
+	(
+		"Space.png",
+		SOIL_LOAD_AUTO,
+		SOIL_CREATE_NEW_ID,
+		SOIL_FLAG_MIPMAPS | SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
+	);
 
+
+	window.mainLoop();
 	system("pause");
 	return 0;
 }

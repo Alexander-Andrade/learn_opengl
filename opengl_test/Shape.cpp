@@ -5,7 +5,8 @@ void Shape::draw(){
 }
 
 void Shape::copyPainter(Painter* painter){
-	this->painter.reset(painter->newInstance(this));
+	Painter* newPainter = painter->newInstance(this);
+	this->painter.reset(newPainter);
 }
 
 Shape::Shape(Painter* painter){
